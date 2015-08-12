@@ -1,6 +1,7 @@
 # scala.bzl
 def impl(ctx):
     ctx.action(
+        inputs = [ctx.file.src],
         command = "%s %s; echo 'blah' > %s" % (
             ctx.file._scalac.path, ctx.file.src.path, ctx.outputs.sh.path),
         outputs = [ctx.outputs.sh]
